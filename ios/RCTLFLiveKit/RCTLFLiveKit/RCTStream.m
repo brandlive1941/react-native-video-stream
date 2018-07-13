@@ -143,20 +143,20 @@
 - (void)liveSession:(nullable LFLiveSession *)session liveStateDidChange:(LFLiveState)state {
     NSLog(@"liveStateDidChange: %ld", state);
     switch (state) {
-        case LFLiveReady:
-            [self.bridge.eventDispatcher sendInputEventWithName:@"onReady" body:@{@"target": self.reactTag}];
+         case LFLiveReady:
+            [self.bridge.eventDispatcher sendDeviceEventWithName:@"onReady" body:@{@"target": self.reactTag}];
             break;
         case LFLivePending:
-            [self.bridge.eventDispatcher sendInputEventWithName:@"onPending" body:@{@"target": self.reactTag}];
+            [self.bridge.eventDispatcher sendDeviceEventWithName:@"onPending" body:@{@"target": self.reactTag}];
             break;
         case LFLiveStart:
-            [self.bridge.eventDispatcher sendInputEventWithName:@"onStart" body:@{@"target": self.reactTag}];
+            [self.bridge.eventDispatcher sendDeviceEventWithName:@"onStart" body:@{@"target": self.reactTag}];
             break;
         case LFLiveError:
-            [self.bridge.eventDispatcher sendInputEventWithName:@"onError" body:@{@"target": self.reactTag}];
+            [self.bridge.eventDispatcher sendDeviceEventWithName:@"onError" body:@{@"target": self.reactTag}];
             break;
         case LFLiveStop:
-            [self.bridge.eventDispatcher sendInputEventWithName:@"onStop" body:@{@"target": self.reactTag}];
+            [self.bridge.eventDispatcher sendDeviceEventWithName:@"onStop" body:@{@"target": self.reactTag}];
             break;
         default:
             break;
