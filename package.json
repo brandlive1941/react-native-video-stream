@@ -1,42 +1,15 @@
 {
   "_args": [
     [
-      {
-        "raw": "react-native-video-stream",
-        "scope": null,
-        "escapedName": "react-native-video-stream",
-        "name": "react-native-video-stream",
-        "rawSpec": "",
-        "spec": "latest",
-        "type": "tag"
-      },
-      "/Users/adam/RNBrandlive"
-    ],
-    [
-      {
-        "raw": "git+https://github.com/brandlive1941/react-native-video-stream.git",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "git+https://github.com/brandlive1941/react-native-video-stream.git",
-        "spec": "git+https://github.com/brandlive1941/react-native-video-stream.git",
-        "type": "hosted",
-        "hosted": {
-          "type": "github",
-          "ssh": "git@github.com:brandlive1941/react-native-video-stream.git",
-          "sshUrl": "git+ssh://git@github.com/brandlive1941/react-native-video-stream.git",
-          "httpsUrl": "git+https://github.com/brandlive1941/react-native-video-stream.git",
-          "gitUrl": "git://github.com/brandlive1941/react-native-video-stream.git",
-          "shortcut": "github:brandlive1941/react-native-video-stream",
-          "directUrl": "https://raw.githubusercontent.com/brandlive1941/react-native-video-stream/master/package.json"
-        }
-      },
+      "git+https://github.com/brandlive1941/react-native-video-stream.git",
       "/Users/adam/RNBrandlive"
     ]
   ],
   "_from": "git+https://github.com/brandlive1941/react-native-video-stream.git",
-  "_id": "react-native-video-stream@0.0.4",
+  "_id": "react-native-video-stream@git+https://github.com/brandlive1941/react-native-video-stream.git#229a8993bfe291c4921af44c2367a74972e1bba8",
+  "_inBundle": false,
   "_inCache": true,
+  "_integrity": "",
   "_location": "/react-native-video-stream",
   "_nodeVersion": "7.9.0",
   "_npmOperationalInternal": {
@@ -50,25 +23,14 @@
   "_npmVersion": "4.2.0",
   "_phantomChildren": {},
   "_requested": {
+    "type": "git",
     "raw": "git+https://github.com/brandlive1941/react-native-video-stream.git",
-    "scope": null,
-    "escapedName": null,
-    "name": null,
     "rawSpec": "git+https://github.com/brandlive1941/react-native-video-stream.git",
-    "spec": "git+https://github.com/brandlive1941/react-native-video-stream.git",
-    "type": "hosted",
-    "hosted": {
-      "type": "github",
-      "ssh": "git@github.com:brandlive1941/react-native-video-stream.git",
-      "sshUrl": "git+ssh://git@github.com/brandlive1941/react-native-video-stream.git",
-      "httpsUrl": "git+https://github.com/brandlive1941/react-native-video-stream.git",
-      "gitUrl": "git://github.com/brandlive1941/react-native-video-stream.git",
-      "shortcut": "github:brandlive1941/react-native-video-stream",
-      "directUrl": "https://raw.githubusercontent.com/brandlive1941/react-native-video-stream/master/package.json"
-    }
+    "saveSpec": "git+https://github.com/brandlive1941/react-native-video-stream.git",
+    "fetchSpec": "https://github.com/brandlive1941/react-native-video-stream.git",
+    "gitCommittish": null
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "git+https://github.com/brandlive1941/react-native-video-stream.git#229a8993bfe291c4921af44c2367a74972e1bba8",
@@ -112,7 +74,6 @@
   ],
   "name": "react-native-video-stream",
   "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/teddykwon/react-native-video-stream.git"

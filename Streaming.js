@@ -2,7 +2,7 @@
  * Created by buhe on 16/4/29.
  */
 import React, {Component} from 'react';
-import {requireNativeComponent, Dimensions, NativeModules, View} from 'react-native';
+import {requireNativeComponent, Dimensions, NativeModules, DeviceEventEmitter, View} from 'react-native';
 import { PropTypes } from 'prop-types';
 //
 // class Stream extends Component {
@@ -23,24 +23,52 @@ const { width , height } = Dimensions.get('window');
 class Stream extends Component {
 	constructor(props, context){
 		super(props, context);
-		this._onReady = this._onReady.bind(this);
-		this._onPending = this._onPending.bind(this);
-		this._onStart = this._onStart.bind(this);
-		this._onError = this._onError.bind(this);
-		this._onStop = this._onStop.bind(this);
+		// this._onReady = this._onReady.bind(this);
+		// this._onPending = this._onPending.bind(this);
+		// this._onStart = this._onStart.bind(this);
+		// this._onError = this._onError.bind(this);
+		// this._onStop = this._onStop.bind(this);
+		// this._onRefresh = this._onRefresh.bind(this);
 	}
 
 	componentWillMount(){
 
 	}
 
-	setPointOfInterest(x, y){
-		NativeModules.StreamManager.focusOnPoint(x,y);
+	componentDidMount(){
+
+		DeviceEventEmitter.addListener("onReady", this.props.onReady);
+
+		DeviceEventEmitter.addListener("onPending", this.props.onPending);
+
+		DeviceEventEmitter.addListener("onStart", this.props.onStart);
+
+		DeviceEventEmitter.addListener("onError", this.props.onError);
+
+		DeviceEventEmitter.addListener("onStop", this.props.onStop);
+
+		DeviceEventEmitter.addListener("onRefresh", this.props.onRefresh);
+
 	}
 
 	componentWillUnmount(){
+		DeviceEventEmitter.removeAllListeners("onReady", this.props.onReady);
+
+		DeviceEventEmitter.removeAllListeners("onPending", this.props.onPending);
+
+		DeviceEventEmitter.removeAllListeners("onStart", this.props.onStart);
+
+		DeviceEventEmitter.removeAllListeners("onError", this.props.onError);
+
+		DeviceEventEmitter.removeAllListeners("onStop", this.props.onStop);
+
+		DeviceEventEmitter.removeAllListeners("onRefresh", this.props.onRefresh);
+
 		this.setNativeProps({started: false});
-		//this._root.stop();
+	}
+
+	setPointOfInterest(x, y){
+		NativeModules.StreamManager.focusOnPoint(x,y);
 	}
 
 	_assignRoot = (component) => {
@@ -67,6 +95,7 @@ class Stream extends Component {
 		onStart: PropTypes.func,
 		onError: PropTypes.func,
 		onStop: PropTypes.func,
+		onRefresh: PropTypes.func,
 		...View.propTypes,
 	}
 
@@ -75,24 +104,28 @@ class Stream extends Component {
 		stopped: false
 	}
 
-	_onReady(event){
-		this.props.onReady && this.props.onReady(event.nativeEvent);
+	onReady(body){
+		this.props.onReady ? this.props.onReady(body) : null;
 	}
 
-	_onPending(event) {
-		this.props.onPending && this.props.onPending(event.nativeEvent);
+	onPending(body) {
+		this.props.onPending ? this.props.onPending(body) : null;
 	}
 
-	_onStart(event) {
-		this.props.onStart && this.props.onStart(event.nativeEvent);
+	onStart(event) {
+		this.props.onStart ? this.props.onStart(body) : null;
 	}
 
-	_onError(event) {
-		this.props.onError && this.props.onError(event.nativeEvent);
+	onError(event) {
+		this.props.onError ? this.props.onError(body) : null;
 	}
 
-	_onStop(event) {
-		this.props.onStop && this.props.onStop(event.nativeEvent);
+	onStop(event) {
+		this.props.onStop ? this.props.onStop(body) : null;
+	}
+
+	onRefresh(event) {
+		this.props.onRefresh ? this.props.onRefresh(body) : null;
 	}
 
 	render() {
@@ -114,11 +147,6 @@ class Stream extends Component {
 			}
 		}
 		const nativeProps = {
-			onReady: this._onReady,
-			onPending: this._onPending,
-			onStart: this._onStart,
-			onError: this._onError,
-			onStop: this._onStop,
 			...this.props,
 			style: {
 				...style

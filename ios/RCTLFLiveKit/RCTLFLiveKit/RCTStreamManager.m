@@ -39,7 +39,8 @@ RCT_EXPORT_METHOD(focusOnPoint:(float)x y:(float)y){
              @"onPending",
              @"onStart",
              @"onError",
-             @"onStop"
+             @"onStop",
+             @"onRefresh"
             ];
 }
 
